@@ -1,6 +1,5 @@
 <?php
-     $db_connection = pg_connect("host=localhost dbname=project_live_db user=postgres password=itvibes");
-	$result = pg_query($db_connection, "SELECT id,project_start_date_old,project_end_date_old,project_due_date_old,project_start_date,project_end_date,project_due_date FROM projects ORDER BY id ASC");
+    $result = pg_query($db_connection, "SELECT id,project_start_date_old,project_end_date_old,project_due_date_old,project_start_date,project_end_date,project_due_date FROM projects ORDER BY id ASC");
 	$res=pg_fetch_all($result);
 	
 	$i=0;
