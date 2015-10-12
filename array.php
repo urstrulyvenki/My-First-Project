@@ -1,6 +1,6 @@
 <?php
-     $db_connection = pg_connect("host=localhost dbname=expand_project_live_db user=postgres password=itvibes");
-	$result = pg_query($db_connection, "SELECT id,project_start_date_old,project_end_date_old,project_due_date_old,project_start_date,project_end_date,project_due_date FROM expand_projects ORDER BY id ASC");
+     $db_connection = pg_connect("host=localhost dbname=project_live_db user=postgres password=itvibes");
+	$result = pg_query($db_connection, "SELECT id,project_start_date_old,project_end_date_old,project_due_date_old,project_start_date,project_end_date,project_due_date FROM projects ORDER BY id ASC");
 	$res=pg_fetch_all($result);
 	
 	$i=0;
@@ -31,7 +31,7 @@
 	 echo '<br>';
 	 
 	 
-	 $query_trans_insert = "UPDATE expand_projects SET project_start_date = '$newstartdate', project_end_date = '$newenddate', project_due_date = '$newduedate'  where id =".$getres['id'];   
+	 $query_trans_insert = "UPDATE projects SET project_start_date = '$newstartdate', project_end_date = '$newenddate', project_due_date = '$newduedate'  where id =".$getres['id'];   
        $user_id = pg_query($query_trans_insert) or die('quer:'.$query_trans_insert.pg_last_error());
  	 
  	$i++;
